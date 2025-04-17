@@ -7,6 +7,18 @@ module Enumerable
       index += 1
     end
   end
+
+  def my_select
+    newArr = []
+
+    self.my_each do |element|
+      if yield(element)
+        newArr.push(element)
+      end
+    end
+
+    return newArr
+  end
 end
 
 # You will first have to define my_each
