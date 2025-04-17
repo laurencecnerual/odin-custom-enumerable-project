@@ -25,7 +25,7 @@ module Enumerable
   end
 
   def my_any?
-    return self.my_select { |element| yield(element) }.length > 1
+    return self.my_select { |element| yield(element) }.length > 0
   end
 
   def my_none?
@@ -48,6 +48,16 @@ module Enumerable
     end
 
     return my_arr
+  end
+
+  def my_inject(initial_value)
+    result = initial_value
+
+    self.my_each do |element| 
+      result = yield(result, element) 
+    end
+
+    return result
   end
 end
 
