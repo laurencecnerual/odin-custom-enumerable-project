@@ -23,6 +23,10 @@ module Enumerable
   def my_all?
     return self.my_select { |element| yield(element) }.length == self.length
   end
+
+  def my_any?
+    return self.my_select { |element| yield(element) }.length > 1
+  end
 end
 
 # You will first have to define my_each
