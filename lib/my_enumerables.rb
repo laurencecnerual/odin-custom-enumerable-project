@@ -27,6 +27,10 @@ module Enumerable
   def my_any?
     return self.my_select { |element| yield(element) }.length > 1
   end
+
+  def my_none?
+    return self.my_select { |element| yield(element) }.length == 0
+  end
 end
 
 # You will first have to define my_each
