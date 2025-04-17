@@ -39,6 +39,16 @@ module Enumerable
 
     return self.length
   end
+
+  def my_map
+    my_arr = []
+
+    self.my_each do|element| 
+      my_arr.push(yield(element))
+    end
+
+    return my_arr
+  end
 end
 
 # You will first have to define my_each
