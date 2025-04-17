@@ -9,15 +9,19 @@ module Enumerable
   end
 
   def my_select
-    newArr = []
+    new_arr = []
 
     self.my_each do |element|
       if yield(element)
-        newArr.push(element)
+        new_arr.push(element)
       end
     end
 
-    return newArr
+    return new_arr
+  end
+
+  def my_all?
+    return self.my_select { |element| yield(element) }.length == self.length
   end
 end
 
